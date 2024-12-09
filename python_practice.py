@@ -83,10 +83,16 @@ while count_test > 0:
 	print(count_test)
 	count_test -= 1
 
-#Challenge Task:
+# Challenge Task:
 # Write a program that:
 
 # Prints all numbers from 1 to 20.
 # For each number:
 # Print "Even" if it's an even number.
 # Print "Odd" if it's an odd number.
+
+for j in range(1, 21):
+	if j % 2 == 0:
+		print(j, "Even")
+	else:
+		print(j, "Odd")
