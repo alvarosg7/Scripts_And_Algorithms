@@ -1,8 +1,7 @@
 
 
 # Exercise 1: FizzBuzz
-# Write a program that prints numbers from 1 to 50.
-# 
+# Write a program that prints numbers from 1 to 50. 
 # For multiples of 3, print "Fizz".
 # For multiples of 5, print "Buzz".
 # For multiples of both 3 and 5, print "FizzBuzz".
@@ -37,16 +36,29 @@ else:
 
 # Exercise 3: Multiplication Table
 # Write a program that generates the multiplication table for numbers from 1 to 10.
-
 # Each number should display its multiplication results from 1 to 10.
+
+
+for k in range(1, 11):
+    for h in range(1, 11):
+        print(f"{k} x {h} = {k *h}")
+    print() #Print a blank line between multiplication tables
+
 
 # Exercise 4: Finding the Largest Number
 # Write a program that takes a list of numbers from the user (comma-separated).
 # Use a loop to find and print the largest number in the list.
 
+user_input = input("Enter your list of comma-separated numbers here: ")
+user_list = user_input.split(',')
+
+for k in user_list:
+     print(k)
+
+
+
 # Exercise 5: Guess the Number
 # Write a program that:
-
 # Randomly picks a number between 1 and 100.
 # Allows the user to guess the number.
 # After each guess, tells the user if the number is too high, too low, or correct.
