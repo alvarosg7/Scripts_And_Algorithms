@@ -111,7 +111,7 @@ FROM
 	employees e 
 JOIN projects p ON e.id = p.employee_id
 GROUP BY e.name
-HAVING COUNT(p.project_id) > 3;
+HAVING COUNT(p.project_id) >= 3;
 
 
 
