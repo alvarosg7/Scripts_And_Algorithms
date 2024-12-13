@@ -68,3 +68,38 @@ print('The largest number is: ', largest)
 # Randomly picks a number between 1 and 100.
 # Allows the user to guess the number. 
 # After each guess, tells the user if the number is too high, too low, or correct.
+
+
+import random
+
+random_number = random.randint(1,100)
+
+user_number = int(input('Enter your number here: '))
+
+if user_number == random_number:
+     print('You guessed the number')
+else:
+     print('You did not guess the number')
+
+
+
+# Task improvement with chatGPT suggestions
+
+import random
+
+# Generate a random number
+random_number = random.randint(1, 100)
+
+# Loop until the user guesses the number
+while True:
+    user_number = int(input("Enter your number here: "))
+    
+    if user_number == random_number:
+        print("You guessed the number!")
+        break
+    elif user_number < random_number:
+        print("Too low! Try again.")
+    else:
+        print("Too high! Try again.")
+
+        
