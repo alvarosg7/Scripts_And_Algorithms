@@ -87,3 +87,32 @@ FROM
 JOIN orders o ON c.customer_id = o.customer_id
 GROUP BY c.customer_name
 HAVING COUNT(o.order_id) > 1;
+
+
+/* Example 1: Employees with a Minimum Number of Projects
+
+Tables:
+
+employees:
+id (INT)
+name (VARCHAR)
+
+projects:
+project_id (INT)
+employee_id (INT)
+
+Question:
+Find employees who are working on at least 3 projects. Display the name of the employee and the project_count. */
+
+SELECT 
+	e.name,
+	COUNT(p.project_id) as project_cound
+FROM 
+	employees e 
+JOIN projects p ON e.id = p.employee_id
+GROUP BY e.name
+HAVING COUNT(p.project_id) > 3;
+
+
+
+
