@@ -50,15 +50,21 @@ for k in range(1, 11):
 # Use a loop to find and print the largest number in the list.
 
 user_input = input("Enter your list of comma-separated numbers here: ")
-user_list = user_input.split(',')
+user_list = [int(n) for n in user_input.split(',')]
 
-for k in user_list:
-     print(k)
+largest = user_list[0]
+
+for num in user_list:
+     if num > largest:
+          largest = num
+
+print('The largest number is: ', largest)
+
 
 
 
 # Exercise 5: Guess the Number
 # Write a program that:
 # Randomly picks a number between 1 and 100.
-# Allows the user to guess the number.
+# Allows the user to guess the number. 
 # After each guess, tells the user if the number is too high, too low, or correct.
