@@ -115,4 +115,29 @@ HAVING COUNT(p.project_id) >= 3;
 
 
 
+/* Example 2: Customers Who Spent Above the Average
 
+Tables:
+
+customers:
+customer_id (INT)
+customer_name (VARCHAR)
+
+orders:
+order_id (INT)
+customer_id (INT)
+total_amount (DECIMAL)
+
+Question:
+Find customers who have spent more than the average total spending. Display the customer_name and the total_spent. */
+
+
+SELECT 
+    c.customer_name, 
+    SUM(o.total_amount) AS total_spent
+FROM customers c
+JOIN orders o ON c.customer_id = o.customer_id
+GROUP BY c.customer_name
+HAVING SUM(o.total_amount) > (
+    SELECT AVG(total_amount) FROM orders
+);
