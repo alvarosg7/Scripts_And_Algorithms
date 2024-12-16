@@ -141,3 +141,34 @@ GROUP BY c.customer_name
 HAVING SUM(o.total_amount) > (
     SELECT AVG(total_amount) FROM orders
 );
+
+
+/* Example 3: Products with Sales Above a Threshold
+Tables:
+
+products:
+product_id (INT)
+product_name (VARCHAR)
+price (DECIMAL)
+
+sales:
+sale_id (INT)
+product_id (INT)
+quantity_sold (INT)
+
+Question:
+Find products that have generated more than $10,000 in total sales. Display the product_name and total_sales. */
+
+SELECT
+	p.product_name,
+	SUM(p.price * s.quantity_sold) as total_sales
+FROM
+	products p
+JOIN 	
+	sales s ON p.product_id = s.product_id
+GROUP BY
+	p.product_name
+HAVING
+	SUM(p.price * s.quantity_sold) > 10000; 
+
+	
