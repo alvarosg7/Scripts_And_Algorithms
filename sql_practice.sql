@@ -171,4 +171,50 @@ GROUP BY
 HAVING
 	SUM(p.price * s.quantity_sold) > 10000; 
 
-	
+
+
+/* Example 4: Departments with High Average Salaries
+
+Tables:
+
+departments:
+department_id (INT)
+department_name (VARCHAR)
+
+employees:
+id (INT)
+name (VARCHAR)
+department_id (INT)
+salary (DECIMAL) 
+
+Question:
+Find departments where the average salary is greater than $70,000. Display the department_name and the average_salary. */
+
+SELECT
+	d.department_name,
+	AVG(e.salary) as average_salary
+FROM
+	department d
+JOIN 
+	employees e ON d.department_id = e.department_id
+GROUP BY
+	d.department_name
+HAVING
+	AVG(e.salary) > 70000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
