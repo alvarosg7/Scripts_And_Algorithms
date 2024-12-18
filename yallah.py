@@ -1,4 +1,5 @@
 def find_triplet_with_sum(numbers, target):
+
     """
     Finds three numbers in the list `numbers` whose sum equals `target`.
 
@@ -10,6 +11,14 @@ def find_triplet_with_sum(numbers, target):
         tuple: A tuple of the three numbers whose sum equals `target`, or None if no triplet is found.
     """
     # Iterate through the list using three nested loops to find the triplet
+
+    for i in range(len(numbers)):
+        for j in range(i+1, len(numbers)):
+            for k in range(j+1, len(numbers)):
+                if numbers[i] + numbers[j] + numbers[k] == target:
+                    return (numbers[i], numbers[j], numbers[k]) 
+                
+
 
 if __name__ == "__main__":
     # Predefined lists of numbers and target sums
