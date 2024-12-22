@@ -27,3 +27,8 @@ Get-Process
 # Each process is an object with properties like Name, Id, CPU, and more. You can view a specific property:
 
 (Get-Process -Name notepad).CPU
+
+
+# List all processes and filter for those consuming significant CPU (>10)
+
+Get-Process | Where-Object{$_.CPU -gt 10}
