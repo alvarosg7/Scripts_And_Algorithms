@@ -32,3 +32,13 @@ Get-Process
 # List all processes and filter for those consuming significant CPU (>10)
 
 Get-Process | Where-Object{$_.CPU -gt 10}
+
+
+# Explanation
+# Get-Process: Retrieves a list of all running processes.
+# |: The pipeline operator passes the output of Get-Process to the next cmdlet.
+# Where-Object: Filters objects based on a condition.
+# $_: Represents the current object in the pipeline.
+# $_.CPU: Accesses the CPU property of the current object.
+# -gt 10: Filters processes where the CPU value is greater than 10.
+
