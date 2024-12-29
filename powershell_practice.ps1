@@ -42,3 +42,34 @@ Get-Process | Where-Object{$_.CPU -gt 10}
 # $_.CPU: Accesses the CPU property of the current object.
 # -gt 10: Filters processes where the CPU value is greater than 10.
 
+
+
+# Exercises: PowerShell Basics
+
+# List Services That Are Running
+
+# List all services on your system and filter to show only those with the status Running.
+
+get-service | where-object{$_.Status -eq 'Running'}
+
+# Find Processes by Name
+ 
+# Use Get-Process to find processes with the name chrome (or any process you want).
+ 
+get-process | where-object{$_.processname -eq 'chrome'}
+
+# Sort Processes by Memory Usage
+
+# List all processes and sort them by their working set (memory usage) in descending order.
+
+# Find Large Files
+ 
+# Navigate to a directory (e.g., C:\Windows) and list all files larger than 10 MB.
+
+# List Top CPU-Consuming Processes
+ 
+# Display the top 5 processes consuming the most CPU time.
+
+# Filter Files by Extension
+ 
+# Navigate to a folder and list only files with the .txt extension.
