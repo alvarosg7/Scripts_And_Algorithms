@@ -202,7 +202,7 @@ GROUP BY
 HAVING
 	AVG(e.salary) > 70000
 
-
+	
 
 
 
