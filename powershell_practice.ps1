@@ -62,6 +62,8 @@ get-process | where-object{$_.processname -eq 'chrome'}
 
 # List all processes and sort them by their working set (memory usage) in descending order.
 
+get-process | sort-object{$_.PM} -descending
+
 # Find Large Files
  
 # Navigate to a directory (e.g., C:\Windows) and list all files larger than 10 MB.
