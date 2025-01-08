@@ -68,6 +68,24 @@ get-process | sort-object{$_.PM} -descending
  
 # Navigate to a directory (e.g., C:\Windows) and list all files larger than 10 MB.
 
+Get-ChildItem -Path "C:\Windows" -Recurse -File | Where-Object {$_.Length -gt 10MB}
+
+# Explanation
+
+# Get-ChildItem: Lists files and directories.
+ 
+# -Path "C:\Windows": Specifies the directory to search.
+# -Recurse: Includes subdirectories in the search.
+# -File: Limits the search to files (ignores directories).
+
+# | (Pipeline): Passes the output to the next command.
+
+# Where-Object: Filters the files based on a condition.
+ 
+# $_: Represents the current file object in the pipeline.
+# $_ .Length: Refers to the file size in bytes.
+# -gt 10MB: Filters files larger than 10 MB (PowerShell recognizes 10MB as 10 megabytes).
+
 # List Top CPU-Consuming Processes
  
 # Display the top 5 processes consuming the most CPU time.
