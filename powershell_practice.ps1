@@ -104,10 +104,29 @@ Get-ChildItem -Path "C:\Windows" -Recurse -File | Where-Object {$_.Length -gt 10
  
 # Display the top 5 processes consuming the most CPU time.
 
-Get-Process | Sort-Object -Property CPU -Descending | Select -First 5
+Get-Process | Sort-Object -Property CPU -Descending | Select-Object -First 5
+
+or 
+
+# Export the Results: Save the top 5 processes to a CSV file for further analysis:
+
+Get-Process | Sort-Object -Property CPU -Descending | Select-Object -First 5 | Export-Csv -Path "TopProcesses.csv" -NoTypeInformation
 
 # Filter Files by Extension
  
 # Navigate to a folder and list only files with the .txt extension.
 
 Get-ChildItem -Path 'C:\Users\Alvaro.Sandino\OneDrive - Rapid Data GmbH\Desktop' -Recurse -File -Include *.txt
+
+or 
+
+Get-ChildItem -Path 'C:\Users\Alvaro.Sandino\OneDrive - Rapid Data GmbH\Desktop' -Recurse -File | Where-Object {$_.Extension -eq ".txt"}
+
+# Alternative Using -Filter
+# You can use the -Filter parameter for better performance:
+
+Get-ChildItem -Path 'C:\Users\Alvaro.Sandino\OneDrive - Rapid Data GmbH\Desktop' -Recurse -File -Filter *.txt
+
+
+# -Filter: Filters items directly during the retrieval process, making it faster than post-processing with Where-Object.
+
