@@ -62,7 +62,11 @@ get-process | where-object{$_.processname -eq 'chrome'}
 
 # List all processes and sort them by their working set (memory usage) in descending order.
 
-get-process | sort-object{$_.PM} -descending
+get-process | sort-object{$_.PM} -descending 
+
+or 
+
+get-process | sort-object -Property PM -Descending
 
 # Find Large Files
  
@@ -86,10 +90,24 @@ Get-ChildItem -Path "C:\Windows" -Recurse -File | Where-Object {$_.Length -gt 10
 # $_ .Length: Refers to the file size in bytes.
 # -gt 10MB: Filters files larger than 10 MB (PowerShell recognizes 10MB as 10 megabytes).
 
+# Optional Enhancements
+# Sort by Size: Add Sort-Object -Property Length -Descending to sort files by size:
+
+Get-ChildItem -Path "C:\Windows" -Recurse -File | Where-Object {$_.Length -gt 10MB} | Sort-Object -Property Length -Descending
+
+# Select Specific Properties: Display only the name and size:
+
+Get-ChildItem -Path "C:\Windows" -Recurse -File | Where-Object {$_.Length -gt 10MB} | Select-Object Name, Length
+
+
 # List Top CPU-Consuming Processes
  
 # Display the top 5 processes consuming the most CPU time.
 
+Get-Process | Sort-Object -Property CPU -Descending | Select -First 5
+
 # Filter Files by Extension
  
 # Navigate to a folder and list only files with the .txt extension.
+
+Get-ChildItem -Path 'C:\Users\Alvaro.Sandino\OneDrive - Rapid Data GmbH\Desktop' -Recurse -File -Include *.txt
