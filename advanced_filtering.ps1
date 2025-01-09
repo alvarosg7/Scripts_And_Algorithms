@@ -35,7 +35,8 @@ Get-Service | Where-Object{$_.Status -eq 'Stopped'}
 
 # Find Files Modified Recently 
 # Navigate to a directory and find all files modified within the last 7 days.
- 
+
+Get-ChildItem -Path 'C:\Users\Alvaro.Sandino\OneDrive - Rapid Data GmbH\Desktop' -Recurse -File | Where-Object {$_.LastWriteTime -ge (Get-Date).AddDays(-7)}
 
 # Bonus Challenges
 
