@@ -43,6 +43,14 @@ Get-ChildItem -Path 'C:\Users\Alvaro.Sandino\OneDrive - Rapid Data GmbH\Desktop'
 # Get System Uptime 
 # Find how long the system has been running using Get-WmiObject or another cmdlet.
 
+(Get-WmiObject -Class Win32_OperatingSystem).LastBootUpTime
+
+# or
+
+(Get-CimInstance -ClassName Win32_OperatingSystem).LastBootUpTime
+
+# Get-Uptime only works on powershell version 6 or above
+
 # List Top 3 Largest Files 
 # Navigate to a directory and list the top 3 largest files.
 
