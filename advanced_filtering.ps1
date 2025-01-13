@@ -51,8 +51,12 @@ Get-ChildItem -Path 'C:\Users\Alvaro.Sandino\OneDrive - Rapid Data GmbH\Desktop'
 
 # Get-Uptime only works on powershell version 6 or above
 
+##################################################################################################################
+
 # List Top 3 Largest Files 
 # Navigate to a directory and list the top 3 largest files.
+
+Get-ChildItem -Path 'C:\Users\Alvaro.Sandino\OneDrive - Rapid Data GmbH\Desktop' -Recurse -File | Sort-Object -Property Length -Descending | Select-Object -First 3
 
 # Monitor Processes Consuming High Memory 
 # Continuously monitor and display processes consuming more than 100 MB of memory.
