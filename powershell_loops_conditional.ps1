@@ -12,3 +12,10 @@ while ($true) {
     if($FreeSpace.Free -lt 10GB){write-host "Warning, free space less than 10GB"} 
     Start-Sleep -Seconds 5
 }
+
+
+# 2. Restart Stopped Services
+# Objective: Automate service management.
+
+# Prompt: Write a script that loops through all services. If a service has a Stopped status and its startup type is Automatic, attempt to restart it and log the service name.
+
