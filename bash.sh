@@ -20,5 +20,3 @@ echo $fav_color
 
 
 echo 'Hello ' $3 'You are ' $4 'years old' 
-
-
