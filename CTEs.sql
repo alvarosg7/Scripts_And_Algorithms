@@ -41,6 +41,7 @@ salary (DECIMAL)
 departments:
 department_id (INT)
 department_name (VARCHAR)
+
 Write a query using a CTE to:
 
 Calculate the average salary for each department.
@@ -53,3 +54,19 @@ salary
 average_salary */
 
 
+WITH DepartmentAverages AS (
+    SELECT 
+        department_id, 
+        AVG(salary) AS average_salary
+    FROM employees
+    GROUP BY department_id
+)
+SELECT 
+    e.name, 
+    d.department_name, 
+    e.salary, 
+    da.average_salary
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+JOIN DepartmentAverages da ON e.department_id = da.department_id
+WHERE e.salary > da.average_salary;
